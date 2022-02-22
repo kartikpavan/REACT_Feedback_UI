@@ -228,3 +228,27 @@ input:focus {
     width: 80%;
   }
 }
+
+.inactive {
+  background-color: rgb(196, 195, 195);
+  color: rgb(87, 87, 87);
+  font-weight: bold;
+  padding: 0 10px;
+  border-radius: 7px;
+  text-decoration: none;
+}
+
+.active {
+  background-color: #ff6a95;
+  color: white;
+  font-weight: bold;
+  padding: 0 10px;
+  border-radius: 7px;
+  text-decoration: none;
+}
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+  font-size: 13px;
+}

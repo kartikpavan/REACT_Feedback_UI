@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import FeedbackList from './components/FeedbackList';
 import Feedbackstats from './components/Feedbackstats';
 import Feedbackform from './components/Feedbackform';
-
+import AboutPage from './pages/AboutPage';
+import AboutIconLink from './components/AboutIconLink';
 //Data
 import Feedbackdata from './data/FeedbackData';
 
@@ -23,12 +25,26 @@ function App() {
 
   return (
     <>
-      <Header />
-      <div className="container">
-        <Feedbackform addFeedback={addFeedback} />
-        <Feedbackstats feedback={feedback} />
-        <FeedbackList feedback={feedback} removeItem={removeItem} />
-      </div>
+      <Router>
+        <Header />
+        <div className="container">
+          <Routes>
+            <Route
+              exact
+              path="/"
+              element={
+                <>
+                  <Feedbackform addFeedback={addFeedback} />
+                  <Feedbackstats feedback={feedback} />
+                  <FeedbackList feedback={feedback} removeItem={removeItem} />
+                </>
+              }
+            ></Route>
+            <Route path="/about" element={<AboutPage />} />
+          </Routes>
+        </div>
+        <AboutIconLink />
+      </Router>
     </>
   );
 }
