@@ -1,6 +1,5 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### LIVE @ https://feedback-ui-vdkp.netlify.app/
+![Screenshot 2022-02-22 195718](https://user-images.githubusercontent.com/81632171/155152511-1411f5ae-b876-4a10-b21c-dc7089be8e17.png)
 
 ## Available Scripts
 
