@@ -1,16 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Rating from './Rating';
 import Card from './cssComponent/Card';
 import Button from './cssComponent/Button';
 import { useGlobalContext } from '../context/FeedbackContext';
 
 function Feedbackform() {
-  const { addFeedback } = useGlobalContext();
+  const { addFeedback, feedbackEdit, updateFeedback } = useGlobalContext();
 
   const [text, setText] = useState('');
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState('');
   const [rating, setRating] = useState(5);
+
+  useEffect(() => {
+    if (feedbackEdit.edit === true) {
+      setBtnDisabled(false);
+      setText(feedbackEdit.item.text);
+      setRating(feedbackEdit.item.rating);
+    }
+  }, [feedbackEdit]);
 
   const inputChangeHandler = (e) => {
     setText(e.target.value);
@@ -34,7 +42,12 @@ function Feedbackform() {
         text: text,
         rating: rating,
       };
-      addFeedback(newFeedback);
+      if (feedbackEdit.edit === true) {
+        updateFeedback(feedbackEdit.item.id, newFeedback);
+      } else {
+        addFeedback(newFeedback);
+      }
+
       setText('');
     }
   };
@@ -54,7 +67,7 @@ function Feedbackform() {
           />
           {/* Button Component */}
           <Button type="submit" isDisabled={btnDisabled}>
-            Send
+            Submit
           </Button>
         </div>
         {message ? <div className="message">{message}</div> : null}

@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useGlobalContext } from '../context/FeedbackContext';
 
 function Rating({ select }) {
   const [selected, setSelected] = useState(5);
+  const { feedbackEdit } = useGlobalContext();
 
+  useEffect(() => {
+    setSelected(feedbackEdit.item.rating);
+  }, [feedbackEdit]);
   const changeHandler = (e) => {
     setSelected(+e.currentTarget.value); //* plus is added to change it from STRING TO NUMBER
     select(+e.currentTarget.value);
