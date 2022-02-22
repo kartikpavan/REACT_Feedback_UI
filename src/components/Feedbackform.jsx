@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import Rating from './Rating';
 import Card from './cssComponent/Card';
 import Button from './cssComponent/Button';
+import { useGlobalContext } from '../context/FeedbackContext';
 
-function Feedbackform({ addFeedback }) {
+function Feedbackform() {
+  const { addFeedback } = useGlobalContext();
+
   const [text, setText] = useState('');
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState('');

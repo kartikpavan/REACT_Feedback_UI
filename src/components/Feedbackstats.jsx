@@ -1,6 +1,9 @@
 import React from 'react';
+import { useGlobalContext } from '../context/FeedbackContext';
 
-function Feedbackstats({ feedback }) {
+function Feedbackstats() {
+  const { feedback } = useGlobalContext();
+
   //* calculate average rating for all feedback
   let average =
     feedback.reduce((acc, cur) => {
