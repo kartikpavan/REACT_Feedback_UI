@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
+import { FaTimes } from 'react-icons/fa';
+import Card from './cssComponent/Card';
 
-function FeedbackItem({ rating, text }) {
+function FeedbackItem({ id, rating, text, removeItem }) {
   return (
-    <div className="card">
+    <Card reverse={false}>
       <div className="num-display">{rating}</div>
+      <button className="close" onClick={() => removeItem(id)}>
+        <FaTimes color="purple" />
+      </button>
       <div className="text-display">{text}</div>
-    </div>
+    </Card>
   );
 }
 
