@@ -2,23 +2,18 @@
   "feedback": [
     {
       "id": 1,
-      "text": "This is data coming from JSON - server 1.  ",
+      "text": "Item number 1 from JSON server  ",
       "rating": 5
     },
     {
       "id": 2,
-      "text": "This is data coming from JSON - server 2.  ",
+      "text": "Item number 2 from JSON server  ",
       "rating": 2
     },
     {
-      "id": 3,
-      "text": "This is data coming from JSON - server 3 .  ",
-      "rating": 3
-    },
-    {
-      "text ": "this is a post request ",
-      "rating": 2,
-      "id": 4
+      "text": "Item is Updated Now!! ",
+      "rating": 5,
+      "id": 3
     }
   ]
 }

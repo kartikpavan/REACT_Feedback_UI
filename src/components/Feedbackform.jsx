@@ -38,7 +38,6 @@ function Feedbackform() {
     e.preventDefault();
     if (text.trim().length > 10) {
       const newFeedback = {
-        id: new Date().getTime().toString(),
         text: text,
         rating: rating,
       };
