@@ -12,9 +12,7 @@ const FeedbackProvider = ({ children }) => {
 
   //* remove Item from Feedback list
   const removeItem = (id) => {
-    if (window.confirm('Are you sure want to delete the item ?')) {
-      setFeedback(feedback.filter((item) => item.id !== id));
-    }
+    setFeedback(feedback.filter((item) => item.id !== id));
   };
 
   //* Add items to Feedback list
@@ -22,22 +20,19 @@ const FeedbackProvider = ({ children }) => {
     setFeedback([newFeedback, ...feedback]);
   };
 
-  //* Set Item to be Updated
+  //* grabbing the feedback item that we want to edit
   const editFeedback = (item) => {
+    console.log(item);
     setFeedbackEdit({
       item,
       edit: true,
     });
   };
-  //*Update Feedback Item
+
+  //* Updating the grabbed Feedback Item
   const updateFeedback = (id, upditem) => {
     setFeedback(
-      feedback.map((item) => {
-        if (item.id === id) {
-          return { ...item, ...upditem };
-        }
-        return item;
-      })
+      feedback.map((item) => (item.id === id ? { ...item, ...upditem } : item))
     );
   };
   return (

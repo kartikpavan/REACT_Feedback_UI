@@ -51,6 +51,7 @@ function Feedbackform() {
       setText('');
     }
   };
+
   return (
     <Card>
       <form onSubmit={submitHandler}>
