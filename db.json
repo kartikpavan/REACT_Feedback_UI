@@ -17,7 +17,7 @@
     },
     {
       "text ": "this is a post request ",
-      "rating": "2",
+      "rating": 2,
       "id": 4
     }
   ]

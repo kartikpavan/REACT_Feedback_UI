@@ -2,13 +2,23 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import FeedbackItem from './FeedbackItem';
 import { useGlobalContext } from '../context/FeedbackContext';
+import Spinner from './cssComponent/Spinner';
 
 function FeedbackList() {
-  const { feedback } = useGlobalContext();
+  const { feedback, loading } = useGlobalContext();
 
-  if (!feedback || feedback.length === 0) {
+  if (loading === false && (!feedback || feedback.length === 0)) {
     return <p> No Feedback Yet</p>;
   }
+
+  if (loading) {
+    return (
+      <div>
+        <Spinner />
+      </div>
+    );
+  }
+
   return (
     <div className="feedback-list">
       <AnimatePresence>

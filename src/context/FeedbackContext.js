@@ -1,14 +1,26 @@
-import React, { useContext, useState } from 'react';
-import Feedbackdata from '../data/FeedbackData';
+import React, { useContext, useState, useEffect } from 'react';
 
 const FeedbackContext = React.createContext();
 
 const FeedbackProvider = ({ children }) => {
-  const [feedback, setFeedback] = useState(Feedbackdata);
+  const [loading, setLoading] = useState(true);
+  const [feedback, setFeedback] = useState([]);
   const [feedbackEdit, setFeedbackEdit] = useState({
     item: {},
     edit: false,
   });
+  //* fetch feedback
+  const fetchFeedback = async () => {
+    const response = await fetch(
+      'http://localhost:5000/feedback?_sort=id&_order=desc'
+    );
+    const data = await response.json();
+    setFeedback(data);
+    setLoading(false);
+  };
+  useEffect(() => {
+    fetchFeedback();
+  }, []);
 
   //* remove Item from Feedback list
   const removeItem = (id) => {
@@ -38,6 +50,7 @@ const FeedbackProvider = ({ children }) => {
   return (
     <FeedbackContext.Provider
       value={{
+        loading,
         feedback,
         removeItem,
         addFeedback,
