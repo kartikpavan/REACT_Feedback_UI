@@ -1,0 +1,24 @@
+{
+  "feedback": [
+    {
+      "id": 1,
+      "text": "This is data coming from JSON - server 1.  ",
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "text": "This is data coming from JSON - server 2.  ",
+      "rating": 2
+    },
+    {
+      "id": 3,
+      "text": "This is data coming from JSON - server 3 .  ",
+      "rating": 3
+    },
+    {
+      "text ": "this is a post request ",
+      "rating": "2",
+      "id": 4
+    }
+  ]
+}
